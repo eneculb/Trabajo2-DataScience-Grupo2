@@ -1,1 +1,4 @@
+from Ejercicio_1 import datos
+import os
 
+def mostrar_menu():

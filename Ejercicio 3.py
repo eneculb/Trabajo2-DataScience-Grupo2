@@ -19,8 +19,8 @@ def mostrar_menu_estadistica():
       Mediana = int(Numeros_Ataque.median())
       Moda = int(Numeros_Ataque.mode().iloc[0])
       print(f"\nEl promedio del ataque de los Pokémon es: {Promedio}")
-      print(f"\La mediana del ataque de los Pokémones: {Mediana}")
-      print(f"\la Moda del ataqur de los Pokémon es: {Moda}")
+      print(f"\nLa mediana del ataque de los Pokémones: {Mediana}")
+      print(f"\nla Moda del ataqur de los Pokémon es: {Moda}")
       input("\nPresiona Enter para continuar...")
       
     elif opcion == "2":
@@ -34,7 +34,7 @@ def mostrar_menu_estadistica():
       print("\nPokémon con menos velocidad:")
       print(datos[datos["Velocidad"] == Minima_Velocidad][["Nombre", "Velocidad"]])
       
-      input("\Presiona Enter para continuar...")
+      input("\nPresiona Enter para continuar...")
       
     elif opcion == "3":
       #¿Cuántos Pokémon tienen dos tipo?

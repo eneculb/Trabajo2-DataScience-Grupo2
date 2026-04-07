@@ -8,16 +8,16 @@ def mostrar_menu_estadistica():
     os.system("cls") # Limmpiar pantalla en Windows
     print("1. Promedio, mediana y moda del ataque ")
     print("2. Pokémon con mayor defensa y menor velocidad")
-    pŕint("3. Pokémon con dos tipos")
+    print("3. Pokémon con dos tipos")
     print("4. Rango y desviación estándar de PS")
     opcion = input("Elige una opción: ")
     
     if opcion == "1":
       #Calcular el promedio, la mediana y la moda del ataque de todos los Pokémon.
-      Numeros_Ataque = datos["ataque"]
+      Numeros_Ataque = datos["Ataque"]
       Promedio = int(Numeros_Ataque.mean().round(0))
       Mediana = int(Numeros_Ataque.median())
-      Moda = int(Numeros_.mode().iloc[0])
+      Moda = int(Numeros_Ataque.mode()().iloc[0])
       print(f"\nEl promedio del ataque de los Pokémon es: {Promedio}")
       print(f"\La mediana del ataque de los Pokémones: {Mediana}")
       print(f"\la Moda del ataqur de los Pokémon es: {Moda}")

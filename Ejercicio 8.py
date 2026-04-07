@@ -4,9 +4,9 @@ import os
 
 def mostrar_menupokemon():
 os.system("cls") 
-      print("1./n Ver conclusiones del graficos")
-        print("2./n Ver tipo Balanceado y mas especializado")
-          print("0./n Salir")
+      print("1.\n Ver conclusiones del graficos")
+        print("2.\n Ver tipo Balanceado y mas especializado")
+          print("0.\n Salir")
         opcion = input("Elige una opción: ")
 if opcion == "1":
             print("\nConclusiones sobre los Pokémon de la primera generación:")

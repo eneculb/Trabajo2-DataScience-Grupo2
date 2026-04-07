@@ -4,4 +4,4 @@ from limpiar import limpiar_pokemones
 df_limpio = limpiar_pokemones("pokemon_primera_gen.csv", index=False)
 ## 1. Lectura de datos
 datos = pd.read_csv("pokemones_primera_gen_limpio.csv")
-print(datos)
+print(datos.head())

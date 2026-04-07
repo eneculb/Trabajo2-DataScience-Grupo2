@@ -17,7 +17,7 @@ def mostrar_menu_estadistica():
       Numeros_Ataque = datos["Ataque"]
       Promedio = int(Numeros_Ataque.mean().round(0))
       Mediana = int(Numeros_Ataque.median())
-      Moda = int(Numeros_Ataque.mode()().iloc[0])
+      Moda = int(Numeros_Ataque.mode().iloc[0])
       print(f"\nEl promedio del ataque de los Pokémon es: {Promedio}")
       print(f"\La mediana del ataque de los Pokémones: {Mediana}")
       print(f"\la Moda del ataqur de los Pokémon es: {Moda}")
@@ -40,7 +40,7 @@ def mostrar_menu_estadistica():
       #¿Cuántos Pokémon tienen dos tipo?
       pokemones_dos_tipos = datos[datos["Tipo 1"].notna() & datos["Tipo 2"].notna()]
       print("\nPokémon con dos tipos:")
-      print(pokemones_dos_tipos[["Nombra", "Tipo 1", "Tipo 2"]])
+      print(pokemones_dos_tipos[["Nombre", "Tipo 1", "Tipo 2"]])
       print(f"\nCantidad de Pokémon con ambos tipos: {len(pokemones_dos_tipos)}")
       
       input("\nPresiona Enter para continuar...")
@@ -49,9 +49,9 @@ def mostrar_menu_estadistica():
       #Calcula el rango y la desviación estándar de los PS (Puntos de Salud).
       Numero_PS = datos["PS"]
       Rango_PS = Numero_PS.max() - Numero_PS.min()
-    n Desviacion_estandar = round(Numero_PS.std(), 2)
+      Desviacion_estandar = round(Numero_PS.std(), 2)
       print(f"\nEl rango de los puntos de salud(PS): {Rango_PS}")
-      print(f"\La desviación estándar de los puntos de salud(PS): {Desviación_estandar}")
+      print(f"\La desviación estándar de los puntos de salud(PS): {Desviacion_estandar}")
       input("\nPresiona Enter para continuar...")
       
     elif opcion == "0":

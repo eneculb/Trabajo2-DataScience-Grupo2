@@ -12,7 +12,9 @@ def mostrar_menu():
     if opcion == "1":
       print("\nPokemones tipo FUEGO")
       ### Filtrar todos los Pokémon de tipo "Fuego".
-      print(datos[datos["Tipo 1"] == "Fuego"])
+     fuego= datos[datos["Tipo 1"]]= = "Fuego"
+      print(f"Cantidad de Pokémon tipo fuego: {len(fuego)}")
+      print(fuego)
       ####
       input("\nPresiona Enter para continuar...")
     elif opcion == "2":

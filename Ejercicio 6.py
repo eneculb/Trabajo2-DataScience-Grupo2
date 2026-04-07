@@ -27,7 +27,7 @@ def mostrar_menu_agrupamiento():
             # ¿Qué tipo tiene el mayor promedio de velocidad?
             prom_vel = datos.groupby("Tipo 1")["Velocidad"].mean()
             tipo_max = prom_vel.idxmax()
-            valor_max = int(prom_vel.max())
+            valor_max = int(prom_vel.max()2)
             print(f"\nEl tipo con más promedio de velocidad es: {tipo_max} con un {valor_max}")
             input("\nPresiona Enter para continuar...")
 

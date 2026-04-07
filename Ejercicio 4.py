@@ -19,7 +19,7 @@ def mostrar_menu_graficos():
       plt.hist(datos["Ataque"], bins=8, color ="red", edgecolor="black")
       plt.xlabel("Valores de Ataque")
       plt.ylabel("Número de Pokémon")
-      plt.title("Histograma dde valorees de Ataque ")
+      plt.title("Histograma dde valores de Ataque ")
       plt.show()
       input("\nPresiona Enter para continuar...")
       
@@ -33,9 +33,9 @@ def mostrar_menu_graficos():
       input("\nPresiona Enter para continuar...")
       
     elif opcion == "3":
-      # Haz un boxpot de los PS por tipo principal (Tipo 1).
+      # Haz un bLoxpot de los PS por tipo principal (Tipo 1).
       plt.figure(figsize=(14,6)) #Alto y ancho
-      datos.boxplot(colum="PS", by="Tipo 1")
+      datos.boxplot(column="PS", by="Tipo 1")
       plt.title("Boxplot de PS por Tipo Principal")
       plt.suptitle("") # borra título que pandas deja en automatico
       plt.xlabel("Tipo 1")
@@ -51,7 +51,7 @@ def mostrar_menu_graficos():
       plt.title("Distribución de la defensa por Tipo Principal (Violin Plot)")
       plt.xlabel("Tipo 1")
       plt.ylabel("Defensa")
-      plt.cticks(rotation=45) # inclinamos los nombres de los tipos 
+      plt.xticks(rotation=45) # inclinamos los nombres de los tipos 
       plt.show()
       input("\nPresiona Enter para continuar...")
       
@@ -59,7 +59,7 @@ def mostrar_menu_graficos():
       break
       
     else:
-      print("\nOpción no válidad.")
+      print("\nOpción no válida.")
       input("Presiona Enter para continuar...")
 
 #Ejecutar menú

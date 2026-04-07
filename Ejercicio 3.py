@@ -28,18 +28,17 @@ def mostrar_menu_estadistica():
       #Pokémon con mayor defensa
       Maxima_Defensa = datos["Defensa"].max()
       print("\nPokémon con mayor defensa:")
-      print(datos["Defensa"] == Maxima_Defensa][["Nombre", "Defensa"]])
-      
+      print(datos[datos["Defensa"] == Maxima_Defensa][["Nombre", "Defensa"]])
       #Pokémon con menor velocidad
       Minima_Velocidad = datos["Velocidad"].min()
       print("\nPokémon con menos velocidad:")
-      print(datos[datos["Velocidad"] == Minima_velocidad][["Nombre", "Velocidad"]])
+      print(datos[datos["Velocidad"] == Minima_Velocidad][["Nombre", "Velocidad"]])
       
       input("\Presiona Enter para continuar...")
       
     elif opcion == "3":
       #¿Cuántos Pokémon tienen dos tipo?
-      pokemones_dos_tipos = datos[datos["Tipo 1"].notna() & datoss["Tipo 2"].notna()]
+      pokemones_dos_tipos = datos[datos["Tipo 1"].notna() & datos["Tipo 2"].notna()]
       print("\nPokémon con dos tipos:")
       print(pokemones_dos_tipos[["Nombra", "Tipo 1", "Tipo 2"]])
       print(f"\nCantidad de Pokémon con ambos tipos: {len(pokemones_dos_tipos)}")
@@ -50,7 +49,7 @@ def mostrar_menu_estadistica():
       #Calcula el rango y la desviación estándar de los PS (Puntos de Salud).
       Numero_PS = datos["PS"]
       Rango_PS = Numero_PS.max() - Numero_PS.min()
-      Desviacion_estandar = round(Numero_PS.std())
+    n Desviacion_estandar = round(Numero_PS.std(), 2)
       print(f"\nEl rango de los puntos de salud(PS): {Rango_PS}")
       print(f"\La desviación estándar de los puntos de salud(PS): {Desviación_estandar}")
       input("\nPresiona Enter para continuar...")

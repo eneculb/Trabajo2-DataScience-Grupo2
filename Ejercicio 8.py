@@ -8,8 +8,8 @@ def mostrar_menupokemon():
           print("1.\n Ver conclusiones del graficos")
           print("2.\n Ver tipo Balanceado y mas especializado")
           print("0.\n Salir")
-        opcion = input("Elige una opción: ")
-if opcion == "1":
+          opcion = input("Elige una opción: ")
+          if opcion == "1":
            print("\nConclusiones sobre los Pokémon de la primera generación:")
            print("- Algunos tipos como Roca tienen mucha defensa pero baja velocidad.")
            print("- Los Pokémon de tipo Normal presentan gran variación en PS.")
@@ -17,7 +17,7 @@ if opcion == "1":
       
             input("\nPresiona Enter para continuar...")
 
-        elif opcion == "2":
+          elif opcion == "2":
        
             promedios = datos.groupby("Tipo 1")[["Ataque", "Defensa", "Velocidad", "PS"]].mean()
              variabilidad = promedios.std(axis=1)
@@ -33,10 +33,10 @@ if opcion == "1":
             
             input("\nPresiona Enter para continuar...")
 
-        elif opcion == "0":
+          elif opcion == "0":
             break
 
-        else:
+          else:
             print("\nOpción no valida.")
             input("Presiona Enter para continuar...")
 

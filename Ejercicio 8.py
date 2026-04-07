@@ -19,8 +19,7 @@ if opcion == "1":
         elif opcion == "2":
        
             promedios = datos.groupby("Tipo 1")[["Ataque", "Defensa", "Velocidad", "PS"]].mean()
-            
-            variabilidad = promedios.std(axis=1)
+             variabilidad = promedios.std(axis=1)
             
             balanceado = variabilidad.idxmin()
             especializado = variabilidad.idxmax()
@@ -41,4 +40,4 @@ if opcion == "1":
             input("Presiona Enter para continuar...")
 
 # ejecutar
-mostrar_menu_interpretacion()
+mostrar_menupokemon()

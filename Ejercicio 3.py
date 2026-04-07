@@ -20,7 +20,7 @@ def mostrar_menu_estadistica():
       Moda = int(Numeros_Ataque.mode().iloc[0])
       print(f"\nEl promedio del ataque de los Pokémon es: {Promedio}")
       print(f"\nLa mediana del ataque de los Pokémones: {Mediana}")
-      print(f"\nla Moda del ataqur de los Pokémon es: {Moda}")
+      print(f"\nla Moda del ataque de los Pokémon es: {Moda}")
       input("\nPresiona Enter para continuar...")
       
     elif opcion == "2":
@@ -51,7 +51,7 @@ def mostrar_menu_estadistica():
       Rango_PS = Numero_PS.max() - Numero_PS.min()
       Desviacion_estandar = round(Numero_PS.std(), 2)
       print(f"\nEl rango de los puntos de salud(PS): {Rango_PS}")
-      print(f"\La desviación estándar de los puntos de salud(PS): {Desviacion_estandar}")
+      print(f"\nLa desviación estándar de los puntos de salud(PS): {Desviacion_estandar}")
       input("\nPresiona Enter para continuar...")
       
     elif opcion == "0":

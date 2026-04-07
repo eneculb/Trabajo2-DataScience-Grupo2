@@ -31,7 +31,7 @@ def mostrar_menu_EDA():
         elif opcion == "2":
             # ¿Hay correlación entre ataque y velocidad?
             correlacion = datos["Ataque"].corr(datos["Velocidad"])
-            correlacion = round(correlacion, 1)
+            correlacion = round(correlacion, 2)
             print(f"\nCoeficiente de correlación entre Ataque y Velocidad: {correlacion}")
             if correlacion > 0.5:
                 print("Hay correlación positiva moderada/alta: Pokémon con mayor ataque tienden a ser más rápidos.")

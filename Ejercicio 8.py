@@ -1,44 +1,26 @@
-# 8. Ejercicios de interpretación
-from Ejercicio_1 import datos
-import os 
+#8. Ejercicios de interpretación
+#-------------------------------
+#- Interpreta los resultados de los gráficos y estadísticas: ¿qué conclusiones puedes sacar sobre los Pokémon de la primera generación?
+#- ¿Qué tipo de Pokémon sería "más balanceado" según las estadísticas? ¿Y el más especializado?
 
-def mostrar_menupokemon():
-    while True:
-        os.system("cls")
-          print("1.\n Ver conclusiones del graficos")
-          print("2.\n Ver tipo Balanceado y mas especializado")
-          print("0.\n Salir")
-          opcion = input("Elige una opción: ")
-          if opcion == "1":
-           print("\nConclusiones sobre los Pokémon de la primera generación:")
-           print("- Algunos tipos como Roca tienen mucha defensa pero baja velocidad.")
-           print("- Los Pokémon de tipo Normal presentan gran variación en PS.")
-           print("- No hay una relación fuerte entre ataque y velocidad.")
-      
-            input("\nPresiona Enter para continuar...")
 
-          elif opcion == "2":
-       
-            promedios = datos.groupby("Tipo 1")[["Ataque", "Defensa", "Velocidad", "PS"]].mean()
-             variabilidad = promedios.std(axis=1)
-            
-            balanceado = variabilidad.idxmin()
-            especializado = variabilidad.idxmax()
-            
-            print(f"\nEl tipo de Pokémon más BALANCEADO es: {balanceado}")
-            print("  -> Porque sus promedios de Ataque, Defensa, Velocidad y PS son super parecidos entre si.")
-            
-            print(f"\nEl tipo de Pokémon más ESPECIALIZADO es: {especializado}")
-            print("  -> Porque destaca demasiado en una estadistica pero sacrifica las otras (ej: mucha defensa y nada de velocidad).")
-            
-            input("\nPresiona Enter para continuar...")
+import pandas as pd
+df = pd.read_csv("pokemon_primera_gen.csv")
 
-          elif opcion == "0":
-            break
+print("\n¿qué conclusiones puedes sacar sobre los Pokémon de la primera generación?\n")
+print("Los pokemon de la primera generación muestran una variedad de tipos con diferentes promedios de ataque y defensa.")
+print("Algunos tipos como losde fuego tienden a tener un ataque más alto, mientras que los de agua, pueden tener una defensa más alta.")
+print("La relación entre ataque y velocidad es moderada, por ende lo pokemones con mayor ataque no necesariamente son más rápidos.")
+print("LOS PS varía entre tipos, indicando los que tienen una mayor variabilidad en sus puntos de salud.")
+print("Además, se identificaron algunos atipicos en los valores de ataque y PS, lo que podría indicar que ese pokemon es mucho másfuerte o debil.\n")
 
-          else:
-            print("\nOpción no valida.")
-            input("Presiona Enter para continuar...")
+print("¿Qué tipo de Pokémon sería 'más balanceado' según las estadísticas? ¿Y el más especializado?\n")
 
-# ejecutar
-mostrar_menupokemon()
+df["Diferencia"] = df[["PS", "Ataque", "Defensa", "Velocidad"]].max(axis=1) - df[["PS", "Ataque", "Defensa", "Velocidad"]].min(axis=1)
+balanceado = df.loc[df["Diferencia"].idxmin(), "Nombre"]
+
+especializado = df.loc[df["Diferencia"].idxmax(), "Nombre"]
+
+print("Pokémon más balanceado:", balanceado)
+print("Pokémon más especializado:", especializado)
+print("")

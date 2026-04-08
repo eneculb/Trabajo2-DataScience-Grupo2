@@ -6,9 +6,11 @@
 import pandas as pd
 
 df=pd.read_csv("pokemon_primera_gen.csv")
+df["Poder Total"] = df["Ataque"] + df["Defensa"] + df["Velocidad"] + df["PS"]
 
-df["Poder Total"]=df["Ataque"]+df["Defensa"]+df["Velocidad"]+df["PS"]
-
-df_ordenado=df.sort_values(by="Poder Total", ascending=False)
-
-print(df_ordenado)
+df_ordenado = df.sort_values(by="Poder Total", ascending=False)
+print("\nNUEVA COLUMNA DE PODER TOTAL\n")
+print(df_ordenado.to_string())
+print("============================================================================================")
+print("\nTABLA ORDENADA DE FORMA ASCENDENTE DEL PODER TOTAL\n")
+print(df_ordenado[["Nombre", "Tipo 1", "PS", "Ataque", "Defensa", "Velocidad", "Poder Total"]].to_string())

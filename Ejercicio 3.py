@@ -1,66 +1,32 @@
-# Estadística descriptiva
+#3. Estadística descriptiva básica
+#---------------------------------
+#- Calcula el promedio, la mediana y la moda del ataque de todos los Pokémon.
+#- ¿Cuál es el Pokémon con mayor defensa? ¿Y el de menor velocidad?
+#- ¿Cuántos Pokémon tienen dos tipos?
+#- Calcula el rango y la desviación estándar de los PS (Puntos de Salud).
 
-from Ejercicio_1 import datos
-import os 
+import pandas as pd
+df=pd.read_csv("pokemon_primera_gen.csv")
 
-def mostrar_menu_estadistica():
-  while True:
-    os.system("cls") # Limmpiar pantalla en Windows
-    print("1. Promedio, mediana y moda del ataque ")
-    print("2. Pokémon con mayor defensa y menor velocidad")
-    print("3. Pokémon con dos tipos")
-    print("4. Rango y desviación estándar de PS")
-    opcion = input("Elige una opción: ")
-    
-    if opcion == "1":
-      #Calcular el promedio, la mediana y la moda del ataque de todos los Pokémon.
-      Numeros_Ataque = datos["Ataque"]
-      Promedio = int(Numeros_Ataque.mean().round(0))
-      Mediana = int(Numeros_Ataque.median())
-      Moda = int(Numeros_Ataque.mode().iloc[0])
-      print(f"\nEl promedio del ataque de los Pokémon es: {Promedio}")
-      print(f"\nLa mediana del ataque de los Pokémones: {Mediana}")
-      print(f"\nla Moda del ataque de los Pokémon es: {Moda}")
-      input("\nPresiona Enter para continuar...")
-      
-    elif opcion == "2":
-      #¿Cúal es el Pokémon con mayor defensa? ¿Y ellde menor velocidad?
-      #Pokémon con mayor defensa
-      Maxima_Defensa = datos["Defensa"].max()
-      print("\nPokémon con mayor defensa:")
-      print(datos[datos["Defensa"] == Maxima_Defensa][["Nombre", "Defensa"]])
-      #Pokémon con menor velocidad
-      Minima_Velocidad = datos["Velocidad"].min()
-      print("\nPokémon con menos velocidad:")
-      print(datos[datos["Velocidad"] == Minima_Velocidad][["Nombre", "Velocidad"]])
-      
-      input("\nPresiona Enter para continuar...")
-      
-    elif opcion == "3":
-      #¿Cuántos Pokémon tienen dos tipo?
-      pokemones_dos_tipos = datos[datos["Tipo 1"].notna() & datos["Tipo 2"].notna()]
-      print("\nPokémon con dos tipos:")
-      print(pokemones_dos_tipos[["Nombre", "Tipo 1", "Tipo 2"]])
-      print(f"\nCantidad de Pokémon con ambos tipos: {len(pokemones_dos_tipos)}")
-      
-      input("\nPresiona Enter para continuar...")
-      
-    elif opcion == "4":
-      #Calcula el rango y la desviación estándar de los PS (Puntos de Salud).
-      Numero_PS = datos["PS"]
-      Rango_PS = Numero_PS.max() - Numero_PS.min()
-      Desviacion_estandar = round(Numero_PS.std(), 2)
-      print(f"\nEl rango de los puntos de salud(PS): {Rango_PS}")
-      print(f"\nLa desviación estándar de los puntos de salud(PS): {Desviacion_estandar}")
-      input("\nPresiona Enter para continuar...")
-      
-    elif opcion == "0":
-      break
-      
-    else:
-      print("\nOpción no válida.")
-      input("Presiona Enter para continuar...")
+promedio_ataque=df["Ataque"].mean()
+mediana_ataque=df["Ataque"].median()
+moda_ataque=df["Ataque"].mode().values[0]
 
-#Ejecuttar menú
-mostrar_menu_estadistica()
-      
+mayor_defensa=df[df["Defensa"]==df["Defensa"].max()]["Nombre"].values[0]
+menor_velocidad=df[df["Velocidad"]==df["Velocidad"].min()]["Nombre"].values[0]
+
+dos_tipos=df["Tipo 2"].notna().sum()
+
+rango_ps=df["PS"].max()-df["PS"].min()
+desviacion_estandar_ps=df["PS"].std()
+
+print("\nESTADISTICAS POKEMONES\n")
+print("Promedio de ataque:", promedio_ataque)
+print("Mediana de ataque:", mediana_ataque)
+print("Moda de ataque:", moda_ataque)
+print("Pokémon con mayor defensa:", mayor_defensa)
+print("Pokémon con menor velocidad:", menor_velocidad)
+print("Cantidad de Pokémon con dos tipos:", dos_tipos)
+print("Rango de PS:", rango_ps)
+print("Desviación estándar de PS:", desviacion_estandar_ps)
+print("")

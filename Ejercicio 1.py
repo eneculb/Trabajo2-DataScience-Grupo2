@@ -1,7 +1,6 @@
-import pandas as pd 
-from limpiar import limpiar_pokemones
-# Limpiar datos
-df_limpio = limpiar_pokemones("pokemon_primera_gen.csv", index=False)
-## 1. Lectura de datos
-datos = pd.read_csv("pokemones_primera_gen_limpio.csv")
-print(datos.head())
+#1. Lectura de datos
+#-------------------
+#- Carga el archivo pokemon_primera_gen.csv en un DataFrame de Pandas.
+import pandas as pd
+
+df=pd.read_csv("pokemon_primera_gen.csv")

@@ -8,7 +8,7 @@
 import pandas as pd
 df=pd.read_csv("pokemon_primera_gen.csv")
 
-promedio_ataque=df["Ataque"].mean()
+promedio_ataque = round(df["Ataque"].mean(), 2)
 mediana_ataque=df["Ataque"].median()
 moda_ataque=df["Ataque"].mode().values[0]
 
